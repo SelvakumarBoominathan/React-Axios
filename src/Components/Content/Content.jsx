@@ -1,27 +1,28 @@
 import React from 'react';
 import "./Content.css"
 
-const Content = (props) => {
-  
-  //props deStructuring
-  const {image, username, email, country, age, onEdit, onDelete } = props;
+const Content = ({Data, onEdit, onDelete}) => {
 
   return (
     <div className='Parent-content-container'>
-  <div className="card">
-      <img src={image} alt="User" className="card-image" />
+      {Data.map((Emp, index) => (
+  <div className="card" key={index}>
+  
+      <img src={Emp.image} alt="User" className="card-image" />
       <div className="card-details">
-        <h2>{username}</h2>
-        <p>Email: {email}</p>
-        <p>Country: {country}</p>
-        <p>Age: {age}</p>
+        <h2>{Emp.username}</h2>
+        <p>Email: {Emp.email}</p>
+        <p>Country: {Emp.country}</p>
+        <p>Age: {Emp.age}</p>
       </div>
+      
       <div className="card-buttons">
         <button onClick={onEdit} className="edit-button">Edit</button>
         <button onClick={onDelete} className="delete-button">Delete</button>
       </div>
+    
     </div>
-      
+    ))}
     </div>
   )
 }
