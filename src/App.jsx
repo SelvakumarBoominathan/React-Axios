@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import './App.css'
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import Header from "./Components/Header/Header.jsx"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
-    
+      <Header/>
     </div>
   )
 }
 
-export default App
+export default App;
