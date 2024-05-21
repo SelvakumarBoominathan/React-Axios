@@ -27,8 +27,8 @@ const Content = ({Data, onEdit, onDelete}) => {
       </div>
       
       <div className="card-buttons">
-        <button onClick={() => onEdit(emp)} className="edit-button">Edit</button>
-        <button onClick={() => onDelete(emp)} className="delete-button">Delete</button>
+        <button onClick={() => onEdit(emp.id)} className="edit-button">Edit</button>
+        <button onClick={() => onDelete(emp.id)} className="delete-button">Delete</button>
       </div>
     
     </div>
