@@ -25,4 +25,15 @@ return data;
 }
 
 
-export { readAllData, deleteEmployee };
+//PUT or UPDATE
+// const updateEmployee = async (empID) => {
+//   const data = await axios.put(`${url}/${empID}`)
+
+//   return data;
+//   }
+
+
+
+
+
+export { readAllData, deleteEmployee, updateEmployee };

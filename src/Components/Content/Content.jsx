@@ -12,8 +12,6 @@ const Content = ({Data, onEdit, onDelete}) => {
   return (
     <div className='Parent-content-container'>
 
-      
-
     {/* Map function to pass the individual details of an employee from data array */}
       {Data.map((emp, index) => (
   <div className="card" key={index}>
