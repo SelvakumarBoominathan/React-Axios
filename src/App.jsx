@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from "./Components/Header/Header.jsx";
 import Content from "./Components/Content/Content.jsx";
 import { useEffect,useState } from 'react';
+import { readAllData } from "./Components/CRUD-ops.js"
 
 function App() {
 const [data, setData] = useState([]);
@@ -12,9 +13,8 @@ useEffect(()=>{
 
   const fetchData = async() =>{
     try {
-      const response = await axios.get('https://664b818e35bbda10987d2f52.mockapi.io/Employee');
-      setData(response.data)
-      console.log(data)
+      const response = await readAllData();
+      setData(response)
     } catch (error) {
       console.error('Error message: ', error)
     }
