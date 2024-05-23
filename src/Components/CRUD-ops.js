@@ -36,4 +36,4 @@ return data;
 
 
 
-export { readAllData, deleteEmployee, updateEmployee };
+export { readAllData, deleteEmployee };
