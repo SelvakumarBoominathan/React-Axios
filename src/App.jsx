@@ -4,6 +4,7 @@ import Header from "./Components/Header/Header.jsx";
 import Content from "./Components/Content/Content.jsx";
 import { useEffect,useState } from 'react';
 import { readAllData, deleteEmployee, updateEmployee } from "./Components/CRUD-ops.js"
+import updatePopup from "./Components/Popup/popup.jsx"
 
 function App() {
 const [data, setData] = useState([]);
@@ -50,6 +51,7 @@ useEffect(()=>{
     <div>
       <Header/>
       <Content Data={data} onDelete={removeEmp} onEdit={/*updateEmp*/ null} />
+      
     </div>
   )
 }
