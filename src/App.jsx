@@ -51,9 +51,12 @@ useEffect(()=>{
         <Header/>
         <Content Data={data} onDelete={removeEmp} onEdit={/*updateEmp*/ null} />
         </>
-      }></Route>
-        <Route  path="/addmployee"  element={<h2>Add Employee</h2>}></Route>
+      }>
+
+      </Route>
+        <Route  path="/add-employee"  element={<h2>Add Employee</h2>}></Route>
       </Routes>
+
     </Router>
    
   )
