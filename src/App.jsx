@@ -5,6 +5,7 @@ import Content from "./Components/Content/Content.jsx";
 import { useEffect, useState } from 'react';
 import { readAllData, deleteEmployee} from "./Components/CRUD-ops.js";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Addemployee from "./Components/Addemployee/Addemployee.jsx"
 
 
 function App() {
@@ -54,7 +55,7 @@ useEffect(()=>{
       }>
 
       </Route>
-        <Route  path="/add-employee"  element={<h2>Add Employee</h2>}></Route>
+        <Route  path="/add-employee"  element={<Addemployee/>}></Route>
       </Routes>
 
     </Router>

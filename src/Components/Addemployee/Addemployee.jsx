@@ -1,8 +1,12 @@
 
 import React, { useState } from 'react';
-import ".Addemployee.css";
+import "./Addemployee.css";
+import { useNavigate } from 'react-router-dom';
 
 const Addemployee = () => {
+
+const navigate = useNavigate();
+
   const [userData, setUserData] = useState({
     userName: '',
     email: '',
@@ -27,10 +31,16 @@ const Addemployee = () => {
     }));
   };
 
+const addEmployee = async (empData)=>{
+  await createEmployee ();
+  navigate("/")
+}
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(userData);
+    // Handle form submission
+    addEmployee()
     // Reset form after submission
     setUserData({
       userName: '',
@@ -42,7 +52,7 @@ const Addemployee = () => {
   };
 
   return (
-    <div>
+    <div className="user-details-container">
       <h2>User Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -70,6 +80,7 @@ const Addemployee = () => {
     </div>
   );
 };
+
 
 
 export default Addemployee;

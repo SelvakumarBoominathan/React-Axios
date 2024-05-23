@@ -1,7 +1,15 @@
 import React from 'react';
-import "./Content.css"
+import "./Content.css";
+import { useNavigate } from 'react-router-dom';
 
 const Content = ({Data, onEdit, onDelete}) => {
+
+
+
+  const navigate = useNavigate()
+const navigatetoAddition = () => {
+  navigate("/add-employee")
+}
 
 
   // to check if the fetched data is valid in UI
@@ -10,7 +18,15 @@ const Content = ({Data, onEdit, onDelete}) => {
   }
 
   return (
-    <div className='Parent-content-container'>
+
+    <>
+     <div className='btn-container'>
+      <button onClick={navigatetoAddition} id='add-button'>Add New</button>
+      </div>
+
+      <div className='Parent-content-container'>
+
+     
       
 
     {/* Map function to pass the individual details of an employee from data array */}
@@ -33,6 +49,8 @@ const Content = ({Data, onEdit, onDelete}) => {
     </div>
     ))}
     </div>
+    </>
+    
   )
 }
 

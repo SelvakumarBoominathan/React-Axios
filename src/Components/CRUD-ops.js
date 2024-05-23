@@ -25,6 +25,16 @@ return data;
 }
 
 
+//POST
+
+const createEmployee = async (empDetails) => {
+  const data = await axios.post(empDetails)
+  
+  return data;
+  }
+
+
+
 //PUT or UPDATE
 // const updateEmployee = async (empID) => {
 //   const data = await axios.put(`${url}/${empID}`)
@@ -36,4 +46,4 @@ return data;
 
 
 
-export { readAllData, deleteEmployee };
+export { readAllData, deleteEmployee, createEmployee };
