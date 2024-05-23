@@ -14,7 +14,7 @@ const navigatetoAddition = () => {
   return (
     <div className='Heading'>
       <h1>EMPLOYEE DETAILS</h1>
-      <button onClick={navigatetoAddition}  style = {{fontSize : '18px', float : 'right'}}>Add New</button>
+      <button onClick={navigatetoAddition} id='add-button'>Add New</button>
       
     </div>
   )
