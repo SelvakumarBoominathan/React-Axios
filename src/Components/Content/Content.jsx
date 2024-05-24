@@ -1,15 +1,8 @@
 import React from 'react';
 import "./Content.css";
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Content = ({Data, onEdit, onDelete}) => {
-
-
-
-  const navigate = useNavigate()
-const navigatetoAddition = () => {
-  navigate("/add-employee")
-}
 
 
   // to check if the fetched data is valid in UI
@@ -20,8 +13,11 @@ const navigatetoAddition = () => {
   return (
 
     <>
+
+
+    {/*Link to new page*/}
      <div className='btn-container'>
-      <button onClick={navigatetoAddition} id='add-button'>Add New</button>
+      <Link id='add-button' to={'/add-employee'} >Add New</Link>
       </div>
 
       <div className='Parent-content-container'>
