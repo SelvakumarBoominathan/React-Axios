@@ -35,6 +35,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 10px;
 }
 
 .user-details-container button:hover {
@@ -44,4 +45,8 @@
 .error {
   color: red;
   font-size: 12px;
+}
+
+#Home-Link{
+ background-color: rgb(222, 94, 94);
 }

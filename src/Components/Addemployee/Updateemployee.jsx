@@ -1,11 +1,16 @@
 
 import React, { useState } from 'react';
 import "./Add-Del-employee.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const Addemployee = () => {
 
 const navigate = useNavigate();
+
+//to implement Link functionality to a button
+const handleClick = () => {
+  window.location.href = "/";
+}
 
   const [userData, setUserData] = useState({
     userName: '',
@@ -14,11 +19,6 @@ const navigate = useNavigate();
     age: '',
     picture: null
   });
-
-  //to implement Link functionality to a button
-const handleClick = () => {
-  window.location.href = "/";
-}
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,7 +58,7 @@ const addEmployee = async (empData)=>{
 
   return (
     <div className="user-details-container">
-      <h2>Add New User</h2>
+      <h2>Update User Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>

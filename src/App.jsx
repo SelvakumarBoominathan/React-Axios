@@ -4,8 +4,9 @@ import Header from "./Components/Header/Header.jsx";
 import Content from "./Components/Content/Content.jsx";
 import { useEffect, useState } from 'react';
 import { readAllData, deleteEmployee} from "./Components/CRUD-ops.js";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Addemployee from "./Components/Addemployee/Addemployee.jsx"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Addemployee from "./Components/Addemployee/Addemployee.jsx";
+import Updateemployee from "./Components/Addemployee/Updateemployee.jsx"
 
 
 function App() {
@@ -33,14 +34,17 @@ const removeEmp = async(empID) => {
   }
 }
 
-
+// console.log(data);
 
 
 useEffect(()=>{
   fetchData();
 }, [])
 
-
+ const ID =  data.map(element => {
+    element.id
+  });
+ 
 
   return (
 //Added router. Home page will have both header and Content component
@@ -56,7 +60,9 @@ useEffect(()=>{
 
       </Route>
         <Route  path="/add-employee"  element={<Addemployee/>}></Route>
+        <Route path={'/update-employee/:id'}  element={<Updateemployee/>}></Route>
       </Routes>
+ 
 
     </Router>
    
