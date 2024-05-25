@@ -31,7 +31,7 @@ const Content = ({Data, onEdit, onDelete}) => {
   
       <img src={emp.Picture} alt="User" className="card-image" />
       <div className="card-details">
-        <h2>{emp.UserName}</h2>
+        <p>User : {emp.UserName}</p>
         <p>Email: {emp.Email}</p>
         <p>Country: {emp.Country}</p>
         <p>Age: {emp.Age}</p>
@@ -39,9 +39,6 @@ const Content = ({Data, onEdit, onDelete}) => {
       
       <div className="card-buttons">
         <Link key={index} to = {`/update-employee/${emp.id.toString()}`} className="edit-button">Edit</Link>
-        {/* {console.log(`ID from content ${emp.id}`)} */}
-        {/* <Link key={emp.id} to = {`/add-employee/${emp.id}`} className="delete-button">Delete</Link> */}
-        {/* <button onClick={() => onEdit(emp.id)} className="edit-button">Edit</button> */}
         <button onClick={() => onDelete(emp.id)} className="delete-button">Delete</button>
       </div>
     

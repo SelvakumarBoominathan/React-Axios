@@ -34,7 +34,6 @@ const removeEmp = async(empID) => {
   }
 }
 
-// console.log(data);
 
 
 useEffect(()=>{

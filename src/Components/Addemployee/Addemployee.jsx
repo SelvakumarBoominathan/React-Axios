@@ -15,7 +15,7 @@ const navigate = useNavigate();
     picture: null
   });
 
-  //to implement Link functionality to a button
+  //to implement 'Link' functionality to a button
 const handleClick = () => {
   window.location.href = "/";
 }
