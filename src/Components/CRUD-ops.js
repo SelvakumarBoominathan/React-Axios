@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const url = "https://664b818e35bbda10987d2f52.mockapi.io/Employee";
+// const url = "https://664b818e35bbda10987d2f52.mockapi.io/Employee";
+const url = "https://jsonplaceholder.typicode.com/users";
 
 
 
@@ -11,6 +12,7 @@ const readAllData = async () => {
   const data = await axios.get(url);
   return data;
 }
+
 
 
 

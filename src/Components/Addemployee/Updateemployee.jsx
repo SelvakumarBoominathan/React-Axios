@@ -1,16 +1,13 @@
-
 import React, { useEffect, useState } from 'react';
 import "./Add-Del-employee.css";
 // import { useNavigate} from 'react-router-dom';
 import {readAllData} from "../CRUD-ops.js";
 import { useParams } from 'react-router-dom';
 
+
 const Addemployee = () => {
 
   const {id} = useParams;
-
-// const navigate = useNavigate();
-// const EmployeeData = readAllData.Data;
 
 
 //to implement Link functionality to a button
@@ -31,10 +28,10 @@ const handleClick = () => {
 
 useEffect(() =>{
   readAllData()
-  .then((res)=>{
+  .then((res)=>{  
     setUserData({...userData,
       id : res.data.id,
-      userName : res.data.userName,
+      userName : res.data.username,
       email: res.data.email,
       country: res.data.coutry,
       age: res.data.age,
@@ -42,7 +39,6 @@ useEffect(() =>{
     })
   })
     }, [])
-
 
 
   return (
