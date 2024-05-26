@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-// const url = "https://664b818e35bbda10987d2f52.mockapi.io/Employee";
-const url = "https://jsonplaceholder.typicode.com/users";
-
-
+const url = "https://664b818e35bbda10987d2f52.mockapi.io/Employee";
 
 //READ Operation using Axios
 
