@@ -33,14 +33,14 @@ const createEmployee = async (empDetails) => {
 
 
 // PUT or UPDATE
-// const updateEmployee = async (empID) => {
-//   const data = await axios.put(`${url}/${empID}`)
-
-//   return data;
-//   }
-
-
+const updateEmployee = async (empID, userData) => {
+  const data = await axios.put(`${url}/${empID}`, userData)
+  // const data = await axios.put({url}+ id, userData)
+  return data;
+  }
 
 
 
-export { readAllData, deleteEmployee, createEmployee };
+
+
+export { readAllData, deleteEmployee, createEmployee, updateEmployee };

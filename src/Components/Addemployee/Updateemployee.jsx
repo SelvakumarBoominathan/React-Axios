@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Add-Del-employee.css";
 import { useNavigate} from 'react-router-dom';
-import {readAllData} from "../CRUD-ops.js";
+import {readAllData, updateEmployee} from "../CRUD-ops.js";
 import { useParams } from 'react-router-dom';
 
 
@@ -43,6 +43,7 @@ useEffect(() => {
     .catch((error) => {
       console.error('Error fetching data:', error);
     });
+
     }, [id]);
 
 
@@ -56,10 +57,25 @@ useEffect(() => {
 
       }))}
 
+  //handle submit function to update the component
+    const handleSubmit= (e) => {
+      e.preventDefault();
+      setUserData()
+      updateEmployee(id, userData)
+      .then((res) => {
+          navigate("/");
+        })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }
+
+
+
   return (
     <div className="user-details-container">
       <h2>Update User Details</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='UserName'>Username:</label>
           <input type="text" name="userName" placeholder='UserName' value={userData.userName} onChange={handleUpdate}/>
