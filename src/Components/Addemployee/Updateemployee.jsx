@@ -3,6 +3,7 @@ import "./Add-Del-employee.css";
 import { useNavigate} from 'react-router-dom';
 import {readAllData, updateEmployee} from "../CRUD-ops.js";
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Addemployee = () => {
@@ -58,17 +59,41 @@ useEffect(() => {
       }))}
 
   //handle submit function to update the component
-    const handleSubmit= (e) => {
-      e.preventDefault();
-      setUserData()
-      updateEmployee(id, userData)
+  //   const handleSubmit= (e) => {
+  //     e.preventDefault();
+  //     axios.put('https://664b818e35bbda10987d2f52.mockapi.io/Employee'+id, setUserData())
+  //     // updateEmployee(id, userData)
+  //     .then((res) => {
+  //         navigate("/");
+  //       })
+  //     .catch((error) => {
+  //       console.error('Error fetching data:', error);
+  //     });
+  // }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const updateValue = () => {return setUserData()};
+    
+    axios.put(`https://664b818e35bbda10987d2f52.mockapi.io/Employee/${id}`, 
+    
+    setUserData({
+      id: parseInt(e.target.value.id),
+      userName: e.target.value.UserName,
+      email: e.target.value.Email,
+      country: e.target.value.Country,
+      age: e.target.value.Age,
+      picture: e.target.value.Picture 
+
+    }))
       .then((res) => {
-          navigate("/");
-        })
+        
+        navigate("/");
+      })
       .catch((error) => {
-        console.error('Error fetching data:', error);
+        console.error('Error updating employee:', error);
       });
-  }
+  };
 
 
 
