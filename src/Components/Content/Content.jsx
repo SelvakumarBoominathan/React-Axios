@@ -29,12 +29,12 @@ const Content = ({Data, onEdit, onDelete}) => {
       {Data.map((emp, index) => (
   <div className="card" key={index}>
   
-      <img src={emp.Picture} alt="User" className="card-image" />
+      <img src={emp.picture} alt="User" className="card-image" />
       <div className="card-details">
-        <p>User : {emp.UserName}</p>
-        <p>Email: {emp.Email}</p>
-        <p>Country: {emp.Country}</p>
-        <p>Age: {emp.Age}</p>
+        <p>User : {emp.userName}</p>
+        <p>Email: {emp.email}</p>
+        <p>Country: {emp.country}</p>
+        <p>Age: {emp.age}</p>
       </div>
       
       <div className="card-buttons">

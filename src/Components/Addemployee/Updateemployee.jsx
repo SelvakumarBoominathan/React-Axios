@@ -3,7 +3,6 @@ import "./Add-Del-employee.css";
 import { useNavigate} from 'react-router-dom';
 import {readAllData, updateEmployee} from "../CRUD-ops.js";
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 
 
 const Addemployee = () => {
@@ -34,11 +33,11 @@ useEffect(() => {
       if (employee) {
       setUserData({
         id: parseInt(employee.id),
-        userName: employee.UserName,
-        email: employee.Email,
-        country: employee.Country,
-        age: employee.Age,
-        picture: employee.Picture
+        userName: employee.userName,
+        email: employee.email,
+        country: employee.country,
+        age: employee.age,
+        picture: employee.picture
       });
     }})
     .catch((error) => {
@@ -59,33 +58,22 @@ useEffect(() => {
       }))}
 
   //handle submit function to update the component
-  //   const handleSubmit= (e) => {
-  //     e.preventDefault();
-  //     axios.put('https://664b818e35bbda10987d2f52.mockapi.io/Employee'+id, setUserData())
-  //     // updateEmployee(id, userData)
-  //     .then((res) => {
-  //         navigate("/");
-  //       })
-  //     .catch((error) => {
-  //       console.error('Error fetching data:', error);
-  //     });
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updateValue = () => {return setUserData()};
+    const data =  {
+      userName: e.target.userName.value,
+      email: e.target.email.value,
+      country: e.target.country.value,
+      age: parseInt(e.target.age.value),
+      picture: e.target.picture.value,
+      // id: parseInt(e.target.id)
+    }
+    console.log(data);
+    updateEmployee(id, data)
     
-    axios.put(`https://664b818e35bbda10987d2f52.mockapi.io/Employee/${id}`, 
+    // axios.put(`https://664b818e35bbda10987d2f52.mockapi.io/Employee/${id}`, data)
     
-    setUserData({
-      id: parseInt(e.target.value.id),
-      userName: e.target.value.UserName,
-      email: e.target.value.Email,
-      country: e.target.value.Country,
-      age: e.target.value.Age,
-      picture: e.target.value.Picture 
-
-    }))
       .then((res) => {
         
         navigate("/");
@@ -102,24 +90,24 @@ useEffect(() => {
       <h2>Update User Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='UserName'>Username:</label>
-          <input type="text" name="userName" placeholder='UserName' value={userData.userName} onChange={handleUpdate}/>
+          <label htmlFor='userName'>Username:</label>
+          <input type="text" name="userName" placeholder='userName' value={userData.userName} onChange={handleUpdate}/>
         </div>
         <div>
-          <label htmlFor='Email'>Email:</label>
+          <label htmlFor='email'>Email:</label>
           <input type="email" name="email" value={userData.email} onChange={handleUpdate}/>
         </div>
         <div>
-          <label htmlFor='Country'>Country:</label>
+          <label htmlFor='country'>Country:</label>
           <input type="text" name="country" value={userData.country} onChange={handleUpdate}/>
         </div>
         <div>
-          <label htmlFor='Age'>Age:</label>
+          <label htmlFor='age'>Age:</label>
           <input type="number" name="age" value={userData.age} onChange={handleUpdate}/>
         </div>
         <div>
-          <label htmlFor='Picture'>Picture:</label>
-          <input type="string" name="picture" value={userData.picture} onChange={handleUpdate}/>
+          <label htmlFor='picture'>Picture:</label>
+          <input type="text" name="picture" value={userData.picture} onChange={handleUpdate}/>
         </div>
         <button id="Home-Link" type="button" onClick={handleClick}> Home </button> 
         <button type="submit">Update</button>

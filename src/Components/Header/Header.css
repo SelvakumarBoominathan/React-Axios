@@ -1,7 +1,9 @@
 .Heading{
-  background-color: rgb(219, 203, 235);
-  height: 100px;
+  /* background-color: rgb(219, 203, 235); */
+  background-color: #41303e;
+  height: 120px;
   place-content: center;
+  color: #ffff;
 }
 
 h1{

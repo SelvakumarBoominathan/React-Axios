@@ -61,7 +61,7 @@ const addEmployee = async (empData)=>{
       <h2>Add New User</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username:</label>
+          <label>UserName:</label>
           <input type="text" name="userName" value={userData.userName} onChange={handleChange} />
         </div>
         <div>

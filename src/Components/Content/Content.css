@@ -1,6 +1,6 @@
 .Parent-content-container{
   width: 90%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-top: 80px;
   gap: 1rem;
   display: grid;
@@ -20,16 +20,21 @@
 }
 
 .card-image {
-  width: 80px;
-  height: 80px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 16px;
 }
 
-/* .card-details {
+.card-details {
   flex-grow: 1;
-} */
+  margin: 20px;
+  font-size: x-large;
+  line-height: 1.5;
+  color: #294181;
+  font-family: Lato, sans-serif;
+}
 
 .card-buttons {
   display: flex;
@@ -91,7 +96,7 @@
 
   .Parent-content-container{
     margin-top: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   
 }
