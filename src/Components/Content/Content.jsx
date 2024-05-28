@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Content.css";
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Content = ({Data, onDelete}) => {
 
+const [forceReload, setForceReload] = useState(false);
 
-  const [forceReload, setForceReload] = useState(false);
+// to trigger rerender whenever the changes happen
+useEffect(() => {
+  setForceReload(PrevData => !PrevData);
+}, [Data])
 
-  // Function to toggle the forceReload state
-  const toggleReload = () => {
-    setForceReload(prevState => !prevState);
-  };
 
   // to check if the fetched data is valid in UI
   if (!Data) {
@@ -22,13 +21,12 @@ const Content = ({Data, onDelete}) => {
 
     <>
 
-
     {/*Link to new page*/}
      <div className='btn-container'>
       <Link id='add-button' to={'/add-employee'} >Add New</Link>
       </div>
 
-      <div className='Parent-content-container' key={forceReload ? "forceReload" : "noForceReload"}>
+      <div className='Parent-content-container'>
 
     {/* Map function to pass the individual details of an employee from data array */}
       {Data.map((emp, index) => (
