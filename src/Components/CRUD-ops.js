@@ -26,8 +26,12 @@ return data;
 //POST
 
 const createEmployee = async (empDetails) => {
-  const data = await axios.post(empDetails)  
-  return data;
+  try {const response = await axios.post(url,empDetails)  
+        return response.data;
+    } catch{
+    console.error('Error creating employee : ', error);
+    throw error;
+  }
   }
 
 
