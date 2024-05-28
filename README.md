@@ -41,3 +41,4 @@ Edit Data: Provides functionality to edit existing employee details.
 Update Data: Allows users to update employee information.
 Read Data: Displays existing employee data for viewing.
 Delete Data: Enables users to delete employee records from the system.
+You can navigate to home by clicking the home button provided in addEmployee and Update Employee router page.
