@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Add-Del-employee.css";
 import { useNavigate, useParams } from 'react-router-dom';
-import { createEmployee } from '../CRUD-ops';
+import { createEmployee, readAllData } from '../CRUD-ops';
 
 const Addemployee = () => {
 
@@ -32,35 +32,65 @@ const handleClick = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser(prevData => ({
-      ...prevData,
+    setUser({
+      ...user,
       [name]: value
-    }));
+    });
   };
 
 
-const addEmployee = async (empData)=>{
-  await createEmployee (empData);
-  navigate("/")
-}
+// const addEmployee = async (empData)=>{
+//   await createEmployee (empData);
+//   navigate("/")
+// }
 
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+
+  //   e.preventDefault();
+
+  //   // Reset form after submission
+  //   setUser(() => ({
+  //     ...user,
+  //     userName: e.target.userName.value,
+  //     email: e.target.email.value,
+  //     country: e.target.country.value,
+  //     age: parseInt(e.target.age.value),
+  //     picture: e.target.picture.value,
+  //     // id: parseInt(e.target.id)
+  //   }));
+  //   // Handle form submission
+  //   createEmployee(user)
+  //   .then(()=> navigation("/"))
+  //   .catch(err => console.log(err))
+  //   ;
+  // };
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Reset form after submission
-    setUser(prevData => ({
-      ...prevData,
-      userName: e.target.userName.value,
-      email: e.target.email.value,
-      country: e.target.country.value,
-      age: parseInt(e.target.age.value),
-      picture: e.target.picture.value,
-      // id: parseInt(e.target.id)
-    }));
-    // Handle form submission
-    createEmployee(user)
-    navigate("/");
-  };
+
+    const newUser = {
+        userName: e.target.userName.value,
+        email: e.target.email.value,
+        country: e.target.country.value,
+        age: parseInt(e.target.age.value),
+        picture: e.target.picture.value
+    };
+
+    try {
+        // Create the employee
+        await createEmployee(newUser);
+        
+        // Update the user state with the new data
+        setUser(newUser);
+
+        // Navigate to the home page
+        navigation("/");
+    } catch (error) {
+        console.error('Error creating employee:', error);
+    }
+};
 
   return (
     <div className="user-details-container">
@@ -68,23 +98,23 @@ const addEmployee = async (empData)=>{
       <form onSubmit={handleSubmit}>
         <div>
           <label>UserName:</label>
-          <input type="text" name="userName" value={user.userName} onChange={handleChange} />
+          <input type="text" name="userName" value={user.userName} onChange={handleChange} required/>
         </div>
         <div>
           <label>Email:</label>
-          <input type="email" name="email" value={user.email} onChange={handleChange} />
+          <input type="email" name="email" value={user.email} onChange={handleChange} required/>
         </div>
         <div>
           <label>Country:</label>
-          <input type="text" name="country" value={user.country} onChange={handleChange} />
+          <input type="text" name="country" value={user.country} onChange={handleChange} required/>
         </div>
         <div>
           <label>Age:</label>
-          <input type="number" name="age" value={user.age} onChange={handleChange} />
+          <input type="number" name="age" value={user.age} onChange={handleChange} required/>
         </div>
         <div>
           <label htmlFor='picture'>Picture:</label>
-          <input type="text" name="picture" value={user.picture} onChange={handleChange}/>
+          <input type="text" name="picture" value={user.picture} onChange={handleChange} required/>
         </div>
         <button id="Home-Link" type="button" onClick={handleClick} >Home</button>
         <button type="submit">Submit</button>

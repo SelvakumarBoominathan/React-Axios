@@ -87,23 +87,23 @@ useEffect(() => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='userName'>Username:</label>
-          <input type="text" name="userName" placeholder='userName' value={userData.userName} onChange={handleUpdate}/>
+          <input type="text" name="userName" placeholder='userName' value={userData.userName} onChange={handleUpdate} required/>
         </div>
         <div>
           <label htmlFor='email'>Email:</label>
-          <input type="email" name="email" value={userData.email} onChange={handleUpdate}/>
+          <input type="email" name="email" value={userData.email} onChange={handleUpdate} required/>
         </div>
         <div>
           <label htmlFor='country'>Country:</label>
-          <input type="text" name="country" value={userData.country} onChange={handleUpdate}/>
+          <input type="text" name="country" value={userData.country} onChange={handleUpdate} required/>
         </div>
         <div>
           <label htmlFor='age'>Age:</label>
-          <input type="number" name="age" value={userData.age} onChange={handleUpdate}/>
+          <input type="number" name="age" value={userData.age} onChange={handleUpdate} required/>
         </div>
         <div>
           <label htmlFor='picture'>Picture:</label>
-          <input type="text" name="picture" value={userData.picture} onChange={handleUpdate}/>
+          <input type="text" name="picture" value={userData.picture} onChange={handleUpdate} required/>
         </div>
         <button id="Home-Link" type="button" onClick={handleClick}> Home </button> 
         <button type="submit">Update</button>
