@@ -1,59 +1,65 @@
-
 import React, { useState } from 'react';
 import "./Add-Del-employee.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { createEmployee } from '../CRUD-ops';
 
 const Addemployee = () => {
 
-const navigate = useNavigate();
+const { id } = useParams();
 
-  const [userData, setUserData] = useState({
+const navigation = useNavigate();
+
+
+//handle click to return Home page
+const handleClick = () => {
+  navigation("/");
+}
+
+
+  const [user, setUser] = useState({
+    id : id,
     userName: '',
     email: '',
     country: '',
     age: '',
-    picture: null
+    picture: ''
   });
 
+  // const [user, setUser] = useState([...user]);
+
   //to implement 'Link' functionality to a button
-const handleClick = () => {
-  window.location.href = "/";
-}
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUserData(prevData => ({
+    setUser(prevData => ({
       ...prevData,
       [name]: value
     }));
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setUserData(prevData => ({
-      ...prevData,
-      picture: file
-    }));
-  };
 
 const addEmployee = async (empData)=>{
-  await createEmployee ();
+  await createEmployee (empData);
   navigate("/")
 }
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    addEmployee()
     // Reset form after submission
-    setUserData({
-      userName: '',
-      email: '',
-      country: '',
-      age: '',
-      picture: null
-    });
+    setUser(prevData => ({
+      ...prevData,
+      userName: e.target.userName.value,
+      email: e.target.email.value,
+      country: e.target.country.value,
+      age: parseInt(e.target.age.value),
+      picture: e.target.picture.value,
+      // id: parseInt(e.target.id)
+    }));
+    // Handle form submission
+    createEmployee(user)
+    navigate("/");
   };
 
   return (
@@ -62,25 +68,25 @@ const addEmployee = async (empData)=>{
       <form onSubmit={handleSubmit}>
         <div>
           <label>UserName:</label>
-          <input type="text" name="userName" value={userData.userName} onChange={handleChange} />
+          <input type="text" name="userName" value={user.userName} onChange={handleChange} />
         </div>
         <div>
           <label>Email:</label>
-          <input type="email" name="email" value={userData.email} onChange={handleChange} />
+          <input type="email" name="email" value={user.email} onChange={handleChange} />
         </div>
         <div>
           <label>Country:</label>
-          <input type="text" name="country" value={userData.country} onChange={handleChange} />
+          <input type="text" name="country" value={user.country} onChange={handleChange} />
         </div>
         <div>
           <label>Age:</label>
-          <input type="number" name="age" value={userData.age} onChange={handleChange} />
+          <input type="number" name="age" value={user.age} onChange={handleChange} />
         </div>
         <div>
-          <label>Picture:</label>
-          <input type="file" name="picture" onChange={handleFileChange} />
+          <label htmlFor='picture'>Picture:</label>
+          <input type="text" name="picture" value={user.picture} onChange={handleChange}/>
         </div>
-        <button id="Home-Link" onClick={handleClick} >Home</button>
+        <button id="Home-Link" type="button" onClick={handleClick} >Home</button>
         <button type="submit">Submit</button>
       </form>
     </div>

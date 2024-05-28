@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Add-Del-employee.css";
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 import {readAllData, updateEmployee} from "../CRUD-ops.js";
-import { useParams } from 'react-router-dom';
 
 
 const Addemployee = () => {
@@ -11,6 +10,7 @@ const Addemployee = () => {
 
   const navigate = useNavigate();
 
+  //handle click to return Home page
   const handleClick = () => {
     navigate("/");
   }
@@ -69,13 +69,9 @@ useEffect(() => {
       picture: e.target.picture.value,
       // id: parseInt(e.target.id)
     }
-    console.log(data);
+
     updateEmployee(id, data)
-    
-    // axios.put(`https://664b818e35bbda10987d2f52.mockapi.io/Employee/${id}`, data)
-    
       .then((res) => {
-        
         navigate("/");
       })
       .catch((error) => {
