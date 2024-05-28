@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Add-Del-employee.css";
 import { useNavigate, useParams } from 'react-router-dom';
-import { createEmployee, readAllData } from '../CRUD-ops';
+import { createEmployee} from '../CRUD-ops';
 
 const Addemployee = () => {
 
@@ -45,52 +45,27 @@ const handleClick = () => {
 // }
 
 
-  // const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
 
-  //   e.preventDefault();
-
-  //   // Reset form after submission
-  //   setUser(() => ({
-  //     ...user,
-  //     userName: e.target.userName.value,
-  //     email: e.target.email.value,
-  //     country: e.target.country.value,
-  //     age: parseInt(e.target.age.value),
-  //     picture: e.target.picture.value,
-  //     // id: parseInt(e.target.id)
-  //   }));
-  //   // Handle form submission
-  //   createEmployee(user)
-  //   .then(()=> navigation("/"))
-  //   .catch(err => console.log(err))
-  //   ;
-  // };
-
-
-  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newUser = {
-        userName: e.target.userName.value,
-        email: e.target.email.value,
-        country: e.target.country.value,
-        age: parseInt(e.target.age.value),
-        picture: e.target.picture.value
-    };
+    // Reset form after submission
+    setUser(() => ({
+      ...user,
+      userName: e.target.userName.value,
+      email: e.target.email.value,
+      country: e.target.country.value,
+      age: parseInt(e.target.age.value),
+      picture: e.target.picture.value,
+      // id: parseInt(e.target.id)
+    }));
+    // Handle form submission
+    createEmployee(user)
+    .then(()=> navigation("/"))
+    .catch(err => console.log(err))
+    ;
+  };
 
-    try {
-        // Create the employee
-        await createEmployee(newUser);
-        
-        // Update the user state with the new data
-        setUser(newUser);
-
-        // Navigate to the home page
-        navigation("/");
-    } catch (error) {
-        console.error('Error creating employee:', error);
-    }
-};
 
   return (
     <div className="user-details-container">
