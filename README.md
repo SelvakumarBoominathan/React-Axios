@@ -8,7 +8,10 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ##CRUD with Axios
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5262e3c3ef25d2072ef6087fd64df1e77f9d8a19
 This project is a simple employee tracking website that allows users to perform CRUD operations (Create, Read, Update, Delete) on employee data. It provides basic information about employees, including their username, age, email, country, and an image.
 
 Table of Contents
